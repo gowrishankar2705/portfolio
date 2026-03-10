@@ -6,6 +6,22 @@
   <title>Contact — Gowrishankar</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Center the contact card */
+    .contact-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    /* Optional: vertically center in viewport */
+    .contact-page {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body class="theme-dark">
   <canvas id="cursorTrail" class="cursor-canvas" aria-hidden="true"></canvas>
@@ -32,28 +48,8 @@
       <p class="lead">Tell me about your project, timeline, and goals. I respond to serious inquiries within 48 hours.</p>
     </section>
 
-    <section class="contact-grid">
-      <!-- Contact Form integrated with Formspree -->
-      <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-  <label for="name">Name</label>
-  <input id="name" name="name" required placeholder="Your name">
-
-  <label for="email">Email</label>
-  <input id="email" name="email" type="email" required placeholder="you@company.com">
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message" rows="6" required placeholder="Project summary, timeline, budget"></textarea>
-
-  <div class="form-actions">
-    <button type="submit" class="btn btn-gold">Send message</button>
-    <button type="reset" class="btn btn-outline">Reset</button>
-  </div>
-
-  <p class="muted small" id="formStatus"></p>
-</form>
-        <p class="muted small">                                                                          </p>
-      </form>
-
+    <!-- Centered Contact Card -->
+    <section class="contact-center">
       <aside class="contact-card glass" aria-label="Contact card">
         <h3>Get in touch</h3>
         <p class="muted">Prefer email or calendar? Copy contact details below.</p>
