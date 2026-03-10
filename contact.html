@@ -51,7 +51,7 @@
 
   <p class="muted small" id="formStatus"></p>
 </form>
-        <p class="muted small"></p>
+        <p class="muted small">                                                                          </p>
       </form>
 
       <aside class="contact-card glass" aria-label="Contact card">
@@ -79,28 +79,3 @@
   <script src="assets/main.js" defer></script>
 </body>
 </html>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const status = document.getElementById("formStatus");
-
-  try {
-    const res = await fetch(form.action, {
-      method: form.method,
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (res.ok) {
-      status.textContent = "Message sent successfully!";
-      form.reset();
-    } else {
-      status.textContent = "Oops! Something went wrong.";
-    }
-  } catch (err) {
-    status.textContent = "Network error. Please try again.";
-  }
-});
-</script>
