@@ -1,0 +1,348 @@
+:root{
+  --bg:#0b0c0e;
+  --panel:#0f1113;
+  --muted:#9aa0a6;
+  --gold:#D4AF37;
+  --gold-2:#c99a2e;
+  --glass: rgba(255,255,255,0.04);
+  --radius:14px;
+  --max:1200px;
+  --ease:cubic-bezier(.2,.9,.3,1);
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg,var(--bg),#070708);
+  color:#e9eef2;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition:background .35s var(--ease),color .35s var(--ease);
+}
+
+/* Layout */
+.container{max-width:var(--max);margin:0 auto;padding:28px}
+.site-header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(11,12,14,0.6),transparent);backdrop-filter:blur(6px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--gold)}
+.brand-name{font-weight:700;letter-spacing:0.2px}
+.logo{filter:drop-shadow(0 6px 18px rgba(0,0,0,0.6))}
+
+/* Nav */
+/* Force nav links to use your theme colors instead of browser defaults */
+.nav-link,
+.nav-link:link,
+.nav-link:visited,
+.nav-link:active,
+.nav-link:focus {
+  color: var(--muted);          /* your muted gray */
+  text-decoration: none;        /* remove underline */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 8px 12px;
+  transition: color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+/* Hover and focus */
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff; /* white on hover */
+  background: linear-gradient(90deg, rgba(212,175,55,0.06), transparent);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.06);
+  outline: none;
+}
+
+/* Active/current page */
+.nav-link.active {
+  color: #fff;
+  background: linear-gradient(90deg, rgba(212,175,55,0.08), transparent);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.06);
+}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:600;cursor:pointer;border:0}
+.btn-gold{background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#0b0c0e;box-shadow:0 12px 40px rgba(212,175,55,0.12);transform:translateZ(0)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.btn-sm{padding:8px 10px;font-size:0.9rem}
+.icon-btn{background:transparent;border:0;color:var(--muted);padding:8px;border-radius:8px;cursor:pointer}
+.icon-btn:hover{color:var(--gold)}
+
+/* Hero */
+.hero{display:flex;gap:28px;align-items:stretch;padding-top:36px;padding-bottom:36px}
+.hero-left{flex:1;min-width:320px}
+.hero-right{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+.hero-title{font-family:Space Grotesk,Inter,system-ui;font-size:2.2rem;line-height:1.02;margin:0 0 12px;color:#fff}
+.hero-lead{color:var(--muted);margin:0 0 18px}
+.hero-ctas{display:flex;gap:12px;margin-bottom:18px}
+.skill-chips{display:flex;gap:10px;list-style:none;padding:0;margin:12px 0 20px}
+.skill-chips li{background:linear-gradient(90deg,rgba(212,175,55,0.06),transparent);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600;font-size:0.85rem}
+.stats{display:flex;gap:18px;margin-top:18px}
+.stats .num{font-weight:800;color:var(--gold);font-size:1.1rem;display:block}
+.muted{color:var(--muted)}
+
+/* Hero canvas and card */
+.hero-canvas{width:100%;height:100%;border-radius:16px;display:block;filter:drop-shadow(0 20px 60px rgba(0,0,0,0.6))}
+.hero-card{position:absolute;right:6%;bottom:6%;width:320px;padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.03)}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.code-sample{background:rgba(0,0,0,0.25);padding:10px;border-radius:8px;color:#fff;font-family:var(--mono);font-size:0.85rem;overflow:auto}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.feature{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.feature-ic{width:36px;height:36px;fill:var(--gold);opacity:0.95}
+
+/* Showcase */
+.showcase{display:flex;gap:28px;align-items:center;margin-top:28px}
+.showcase-left{flex:1}
+.showcase-right{flex:1;display:flex;justify-content:center}
+.device-mockup{width:360px;height:220px;border-radius:12px;padding:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03)}
+.device-screen{height:100%;border-radius:8px;background:linear-gradient(180deg,#0b0c0e,#0f1113)}
+
+/* Projects grid */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+.project-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:16px;border-radius:12px;cursor:pointer;transform-style:preserve-3d;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.project-card:hover{box-shadow:0 20px 60px rgba(0,0,0,0.6);transform:translateY(-8px) rotateX(2deg)}
+.project-media{height:140px;border-radius:10px;background:linear-gradient(135deg,rgba(212,175,55,0.06),transparent);margin-bottom:12px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,2,2,0.6);opacity:0;pointer-events:none;transition:opacity .22s var(--ease)}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-panel{background:var(--panel);padding:20px;border-radius:12px;max-width:900px;width:94%;box-shadow:0 30px 80px rgba(0,0,0,0.7)}
+.modal-close{position:absolute;right:18px;top:18px;background:transparent;border:0;color:var(--muted);font-size:1.1rem}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+.contact-form{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px}
+.contact-form label{display:block;margin-top:12px;font-weight:600}
+.contact-form input, .contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+.contact-card{padding:18px;border-radius:12px}
+
+/* Utilities */
+.glass{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+.lead{color:var(--muted);font-size:1.05rem}
+.small{font-size:0.9rem}
+.muted{color:var(--muted)}
+
+/* Responsive */
+@media(max-width:980px){
+  .features{grid-template-columns:1fr}
+  .showcase{flex-direction:column}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .hero{flex-direction:column}
+  .hero-card{position:static;margin-top:18px}
+  .mobile-only{display:inline-flex}
+  .nav{display:none}
+  .container{padding:18px}
+}
+@media(max-width:560px){
+  .projects-grid{grid-template-columns:1fr}
+  .skill-chips{flex-wrap:wrap}
+  .hero-title{font-size:1.6rem}
+  .brand-name{display:none}
+  .mobile-only{display:inline-flex}
+}
+
+/* Global particle canvas */
+.global-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  transition: opacity .35s ease;
+  will-change: transform;
+}
+@media (max-width: 880px) {
+  .global-canvas { opacity: 0.6; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .global-canvas { display: none !important; }
+}
+
+/* Reveal animations */
+[data-reveal] { opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1); }
+[data-reveal].revealed { opacity:1; transform:translateY(0); }
+
+/* Resume preview card */
+.resume-preview-card { display:flex; justify-content:space-between; gap:18px; padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(255,255,255,0.03); align-items:center; transform:translateY(0); transition:transform .28s var(--ease), box-shadow .28s; }
+.resume-preview-card:hover { transform:translateY(-8px); box-shadow:0 30px 80px rgba(0,0,0,0.6); }
+.rp-left h3 { margin:0 0 6px; font-size:1.05rem; color:#fff; }
+.rp-highlights { margin:10px 0 12px; padding-left:18px; color:var(--muted); }
+.rp-actions { display:flex; gap:10px; }
+.rp-stats { display:flex; gap:12px; align-items:center; }
+.rp-stats .num { font-weight:800; color:var(--gold); font-size:1.05rem; display:block; }
+
+/* Parallax mockup */
+[data-parallax] { will-change:transform; transition:transform .12s linear; }
+
+/* Small utilities */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* =========================
+   NAV OVERRIDES (APPENDED)
+   ========================= */
+
+/* Normalize Contact tab color to match other nav links */
+.nav-link,
+.nav-link:link,
+.nav-link:visited,
+.nav-link:active,
+.nav-link:focus {
+  color: var(--muted) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  padding: 8px 12px;
+}
+
+/* Hover and focus state consistent with other links */
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff !important;
+  background: linear-gradient(90deg, rgba(212,175,55,0.06), transparent) !important;
+  box-shadow: 0 8px 30px rgba(212,175,55,0.06) !important;
+  outline: none;
+}
+
+/* Ensure CTA no longer looks different */
+.nav-link.cta {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--muted) !important;
+  padding: 8px 12px;
+}
+
+/* Active tab styling consistent */
+.nav-link.active {
+  color: #fff !important;
+  background: linear-gradient(90deg, rgba(212,175,55,0.08), transparent) !important;
+  box-shadow: 0 8px 30px rgba(212,175,55,0.06) !important;
+}
+
+/* Make Contact tab visually consistent with other nav links */
+.nav-link.cta {
+  background: transparent !important;   /* remove special background */
+  border: none !important;              /* remove any border */
+  box-shadow: none !important;          /* remove glow/shadow */
+  color: var(--muted) !important;       /* same color as other links */
+  padding: 8px 12px;                    /* consistent padding */
+}
+
+/* Keep hover/active behavior consistent */
+.nav-link.cta:hover,
+.nav-link.cta:focus {
+  color: #fff;
+  background: linear-gradient(90deg, rgba(212,175,55,0.06), transparent);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.06);
+  outline: none;                         /* remove default focus outline if present */
+}
+
+/* If a persistent border or outline appears when the link is active, neutralize it */
+.nav-link.cta.active {
+  background: linear-gradient(90deg, rgba(212,175,55,0.08), transparent);
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(212,175,55,0.06);
+  border: none;
+}
+
+/* Remove any focus ring that might be applied globally to .cta specifically */
+.nav-link.cta:focus-visible {
+  outline: 2px solid rgba(212,175,55,0.14); /* optional subtle focus for accessibility */
+  outline-offset: 2px;
+}
+
+/* Normalize nav link appearance across all pages */
+.nav-link,
+.nav-link:link,
+.nav-link:visited,
+.nav-link:active,
+.nav-link:focus {
+  color: var(--muted) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  padding: 8px 12px;
+  transition: color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+/* Hover and active visual treatment (consistent) */
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff;
+  background: linear-gradient(90deg, rgba(212,175,55,0.06), transparent);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.06);
+  outline: none;
+}
+
+/* Explicitly style the CTA so it no longer looks like an outlier */
+.nav-link.cta {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--muted) !important;
+  padding: 8px 12px;
+}
+
+/* When a link is the current page */
+.nav-link.active {
+  color: #fff;
+  background: linear-gradient(90deg, rgba(212,175,55,0.08), transparent);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.06);
+}
+
+/* Remove any browser default link color on the contact page specifically */
+body.contact-page .nav-link,
+body.contact-page .nav-link:visited {
+  color: var(--muted) !important;
+}
+
+/* End of file */
+
+/* Social links section */
+.social-links { margin-top: 28px; }
+.social-grid {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--muted);
+  text-decoration: none;
+  transition: transform .22s var(--ease), box-shadow .22s var(--ease), color .22s;
+}
+.social-card:hover {
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+}
+.social-ic {
+  width: 22px;
+  height: 22px;
+  fill: var(--gold);
+}
+/* Cursor trail canvas overlay */
+.cursor-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;   /* allow clicks through */
+  z-index: 999;           /* above everything */
+}

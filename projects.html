@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Gowrishankar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <meta name="color-scheme" content="dark light">
+</head>
+<body class="theme-dark">
+    <canvas id="cursorTrail" class="cursor-canvas" aria-hidden="true"></canvas>
+     <canvas id="globalParticles" class="global-canvas" aria-hidden="true"></canvas>
+     <canvas id="globalParticles" class="global-canvas" aria-hidden="true"></canvas>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Gowrishankar home">
+        <svg class="logo" width="36" height="36" aria-hidden="true"><use href="assets/icons.svg#logo"/></svg>
+        <span class="brand-name">Gowrishankar</span>
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="contact.html" class="nav-link cta">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme"><svg width="18" height="18"><use href="assets/icons.svg#sun"/></svg></button>
+        <button id="menuBtn" class="icon-btn mobile-only" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><svg width="18" height="18"><use href="assets/icons.svg#menu"/></svg></button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main class="container page projects-page" id="main">
+    <section class="intro">
+      <h1>Projects</h1>
+      <p class="lead">A curated selection of production‑grade work spanning AI systems, computer vision, realtime dashboards, and full‑stack prototypes. Click any card for details, code snippets, and links.</p>
+    </section>
+
+    <section class="projects-controls" aria-hidden="true">
+      <div class="filter-row">
+        <label class="sr-only" for="filterInput">Filter projects</label>
+        <input id="filterInput" placeholder="Filter by tag or technology (e.g., YOLO, Streamlit, Flask)" />
+      </div>
+    </section>
+
+    <section id="projectsGrid" class="projects-grid" aria-live="polite" aria-label="Projects list">
+      <!-- Project cards injected by script -->
+    </section>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-panel" role="document">
+        <button class="modal-close" aria-label="Close modal">✕</button>
+        <div class="modal-body">
+          <header class="modal-header">
+            <h3 id="modalTitle"></h3>
+            <p id="modalSubtitle" class="muted"></p>
+          </header>
+
+          <section id="modalDesc" class="modal-desc"></section>
+
+          <section id="modalTech" class="modal-tech">
+            <h4>Tech & Tools</h4>
+            <ul id="modalTechList"></ul>
+          </section>
+
+          <pre id="modalCode" class="code-block" aria-hidden="true"></pre>
+
+          <div class="modal-actions">
+            <a id="modalDemo" class="btn btn-gold" href="#" target="_blank" rel="noopener">Open demo</a>
+            <a id="modalRepo" class="btn btn-outline" href="#" target="_blank" rel="noopener">Repository</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>© <strong>Gowrishankar</strong> • AI Developer</p>
+      </div>
+      <div class="footer-right">
+        <a class="link" href="mailto:gowrishankars27@outlook.com">gowrishankars27@outlook.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * Projects data including the three projects you provided.
+     * Replace demo/repo '#' with real links when available.
+     */
+    window.__PROJECTS_DATA__ = [
+      {
+        id: 'energy-dashboard',
+        title: 'Real-time Energy Monitoring Dashboard',
+        short: 'Streamlit dashboard with Google Sheets API for live energy telemetry and visualizations.',
+        desc: 'Built a professional-grade Streamlit dashboard connected to Google Sheets for real-time energy telemetry and visualization. Features automated polling, live charts, alert thresholds, and exportable summaries for energy monitoring and operational insights.',
+        tech: ['Python','Streamlit','Google Sheets API','Data Visualization','Polling','GitHub'],
+        
+        repo: 'https://github.com/gowrishankar2705/Energy_Monitoring-System',
+        code: "with st.empty():\n    while True:\n        df = fetch_from_sheets(sheet_id)\n        st.line_chart(df['power'])\n        time.sleep(10)"
+      },
+      {
+        id: 'object-navigation',
+        title: 'Object Navigation System',
+        short: 'YOLO-based real-time object detection and navigation on Raspberry Pi 4 with directional feedback.',
+        desc: 'Implemented a computer vision system using YOLO for real-time object detection and navigation on Raspberry Pi 4. The system provides directional feedback and obstacle alerts to assist visually impaired users, optimized for low-latency inference on edge hardware.',
+        tech: ['Computer Vision','YOLO','Raspberry Pi','Python','Edge Inference','GitHub'],
+        
+        repo: 'https://github.com/gowrishankar2705/object-navigation',
+        code: "detections = model(frame)\nfor d in detections:\n    if d.conf > 0.5:\n        speak(direction_for(d))"
+      },
+      {
+        id: 'ai-assistant',
+        title: 'AI Assistant (Multimodal)',
+        short: 'Integrated assistant combining speech recognition, vision, and NLP for an interactive experience.',
+        desc: 'This AI Assistant integrates speech recognition, computer vision, and natural language processing to create an interactive assistant experience. Uses AssemblyAI for transcription, ElevenLabs for voice synthesis, OpenCV for vision, and PyTorch for model inference. Designed for modularity and extensibility.',
+        tech: ['NLP','AssemblyAI','ElevenLabs','Voice AI','OpenCV','PyTorch','YOLOv8','GitHub'],
+        
+        repo: 'https://github.com/gowrishankar2705/ai_assistant',
+        code: "transcript = assemblyai.transcribe(audio)\nresponse = nlp_model.generate(transcript)\nplay_audio(elevenlabs.synthesize(response))"
+      },
+      {
+        id: 'component-detector',
+        title: 'Component Detector for Electronics',
+        short: 'AI-powered detector that identifies and classifies electronic components in images and video streams.',
+        desc: 'Component Detector integrates object detection models with a web interface to identify and classify electronic components in images or video streams. It supports batch image upload, live camera mode, and confidence-based filtering for assembly and repair workflows.',
+        tech: ['Deep Learning','Flask','Transformers','OpenCV','PyTorch','TensorFlow','GitHub'],
+        
+        repo: 'https://github.com/gowrishankar2705/Component-Detector',
+        code: "preds = detector.predict(image)\nfor p in preds:\n    annotate(image, p.box, p.label)"
+      },
+      {
+        id: 'swiftspots',
+        title: 'SwiftSports — Ecommerce',
+        short: 'Elegant ecommerce prototype for sportswear with product flows and checkout prototypes.',
+        desc: 'SwiftSports is a simple yet elegant ecommerce platform designed to showcase and sell sportswear items online. Built with modern frontend patterns and a Node.js backend for product management, cart flows, and checkout prototypes.',
+        tech: ['HTML','CSS','JavaScript','Node.js','UI/UX','GitHub'],
+        
+        repo: 'https://github.com/gowrishankar2705/swiftspotrs',
+        code: "fetch('/api/products')\n  .then(r => r.json())\n  .then(renderProducts)"
+      },
+      {
+        id: 'turf-booking',
+        title: 'Turf Booking Website',
+        short: 'Prototype turf booking system with signup, login, and slot reservation flows.',
+        desc: 'A prototype Turf Booking Website built using HTML, CSS, JavaScript and Node.js. Enables users to sign up, log in, and reserve turf slots. Designed as a minimal, extendable booking flow for sports venues.',
+        tech: ['HTML','CSS','JavaScript','Node.js','Booking UX','GitHub'],
+        
+        repo: 'https://github.com/gowrishankar2705/turfbooking',
+        code: "POST /book { userId, turfId, slot }\nreturn 200 if available"
+      },
+      /* Projects you asked to add */
+      {
+        id: 'indoor-ar',
+        title: 'Indoor Navigation Using AR',
+        short: 'Indoor navigation Android app using AR technology for campus wayfinding.',
+        desc: 'Indoor Navigation Android App using AR technology. Utilized AR to develop an indoor navigation application for a college campus, resulting in a 75% decrease in student tardiness to classes.',
+        tech: ['Android','AR','Mobile UX','Unity/ARCore','GitHub'],
+        
+        repo: '#',
+        code: "// AR anchor placement and route guidance\nanchor = arSession.createAnchor(location)\nrenderRoute(anchor, path)"
+      },
+      {
+        id: 'agri-drone',
+        title: 'Automated Agriculture Drone for Disease Identification',
+        short: 'Drone-based disease detection using AI/ML models and aerial imagery.',
+        desc: 'Using AI and ML models integrated with drone technology to identify crop diseases from aerial imagery. Collaborated with agricultural researchers to fine-tune models, achieving an 80% increase in detection rates compared to traditional methods.',
+        tech: ['AI','Drone','Computer Vision','ML','Research Collaboration','GitHub'],
+        
+        repo: '#',
+        code: "images = drone.capture_grid()\npreds = model.predict_batch(images)\nreport = aggregate(preds)"
+      },
+      {
+        id: 'smart-parking',
+        title: 'Smart Parking System',
+        short: 'IoT-enabled parking app with real-time sensor integration and slot monitoring.',
+        desc: 'Developed a Smart Parking System app integrated with hardware sensors to monitor real-time parking availability. Designed a user-friendly interface to display parking slot status, improving efficiency and reducing manual intervention in parking management.',
+        tech: ['IoT','Mobile App','Realtime Monitoring','Sensors','Node.js','GitHub'],
+        
+        repo: '#',
+        code: "socket.on('slotUpdate', data => updateUI(data.slotId, data.status))"
+      }
+    ];
+  </script>
+
+  <script>
+    // Renderer + modal logic (self-contained)
+    (function(){
+      const grid = document.getElementById('projectsGrid');
+      const filterInput = document.getElementById('filterInput');
+      const data = window.__PROJECTS_DATA__ || [];
+
+      function createCard(p){
+        const card = document.createElement('article');
+        card.className = 'project-card';
+        card.tabIndex = 0;
+        card.setAttribute('data-tags', p.tech.join(' ').toLowerCase());
+        card.innerHTML = `
+          <div class="project-media" aria-hidden="true">${p.title}</div>
+          <div class="project-body">
+            <h4>${p.title}</h4>
+            <p class="muted">${p.short}</p>
+            <div class="project-meta"><strong>Tech:</strong> ${p.tech.slice(0,4).join(', ')}${p.tech.length>4?'…':''}</div>
+          </div>
+        `;
+        card.addEventListener('click', ()=> openModal(p));
+        card.addEventListener('keydown', (e)=> { if(e.key==='Enter') openModal(p); });
+        return card;
+      }
+
+      function render(list){
+        grid.innerHTML = '';
+        if(!list.length){
+          grid.innerHTML = '<p class="muted">No projects match your filter.</p>';
+          return;
+        }
+        list.forEach(p => grid.appendChild(createCard(p)));
+        // If main.js provides a tilt initializer, call it
+        if(window.__initTilt) window.__initTilt();
+      }
+
+      // initial render
+      render(data);
+
+      // filter
+      filterInput?.addEventListener('input', (e)=>{
+        const q = e.target.value.trim().toLowerCase();
+        if(!q) return render(data);
+        const filtered = data.filter(p => {
+          return p.title.toLowerCase().includes(q) ||
+                 p.short.toLowerCase().includes(q) ||
+                 p.desc.toLowerCase().includes(q) ||
+                 p.tech.join(' ').toLowerCase().includes(q);
+        });
+        render(filtered);
+      });
+
+      // Modal elements
+      const modal = document.getElementById('projectModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalSubtitle = document.getElementById('modalSubtitle');
+      const modalDesc = document.getElementById('modalDesc');
+      const modalTechList = document.getElementById('modalTechList');
+      const modalCode = document.getElementById('modalCode');
+      const modalDemo = document.getElementById('modalDemo');
+      const modalRepo = document.getElementById('modalRepo');
+      const closeBtn = modal.querySelector('.modal-close');
+
+      function openModal(p){
+        modalTitle.textContent = p.title;
+        modalSubtitle.textContent = p.short;
+        modalDesc.textContent = p.desc;
+        modalTechList.innerHTML = '';
+        p.tech.forEach(t => {
+          const li = document.createElement('li');
+          li.textContent = t;
+          modalTechList.appendChild(li);
+        });
+        modalCode.textContent = p.code || '';
+        modalDemo.href = p.demo || '#';
+        modalRepo.href = p.repo || '#';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+        closeBtn?.focus();
+      }
+
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e)=> { if(e.target === modal) closeModal(); });
+      window.addEventListener('keydown', (e)=> { if(e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+      // Expose a small hook for external tilt initializer
+      window.initTiltFromPage = function(){
+        if(typeof window.__initTilt === 'function') window.__initTilt();
+      };
+    })();
+  </script>
+</body>
+</html>

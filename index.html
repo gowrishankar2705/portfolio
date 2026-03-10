@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gowrishankar — AI Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <meta name="color-scheme" content="dark light">
+</head>
+<body class="theme-dark">
+   <canvas id="cursorTrail" class="cursor-canvas" aria-hidden="true"></canvas>
+    <canvas id="globalParticles" class="global-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Gowrishankar home">
+        <svg class="logo" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#logo"/></svg>
+        <span class="brand-name">Gowrishankar</span>
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="Primary">
+        <a href="index.html" class="nav-link" data-nav="home">Home</a>
+        <a href="about.html" class="nav-link" data-nav="about">About</a>
+        <a href="projects.html" class="nav-link" data-nav="projects">Projects</a>
+        <a href="resume.html" class="nav-link" data-nav="projects">Resume</a>
+        <a href="contact.html" class="nav-link cta" data-nav="contact">Contact</a>
+        <span class="nav-underline" aria-hidden="true"></span>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme"><svg width="18" height="18"><use href="assets/icons.svg#sun"/></svg></button>
+        <button id="menuBtn" class="icon-btn mobile-only" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><svg width="18" height="18"><use href="assets/icons.svg#menu"/></svg></button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container">
+      <div class="hero-left">
+        <h1 class="hero-title">I'm a passionate AI & Data Science engineer with hands-on experience in real world problems</h1>
+        <p class="hero-lead">AI developer, research engineer, and frontend craftsman. I design models, APIs, and delightful UIs that make ML approachable.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="projects.html">Explore Projects</a>
+          <a class="btn btn-outline" href="contact.html">Work with me</a>
+        </div>
+      
+
+        <ul class="skill-chips" aria-hidden="true">
+          <li>LLM Engineering</li>
+          <li>Model Ops</li>
+          <li>Vision Intelligence</li>
+          <li>Interactive Visualizations</li>
+        </ul>
+
+
+
+
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <canvas id="heroCanvas" class="hero-canvas" width="800" height="600"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features container" aria-label="Capabilities">
+      <article class="feature" data-reveal>
+        <svg class="feature-ic"><use href="assets/icons.svg#ai"/></svg>
+        <h3>AI Systems</h3>
+        <p>From prototyping to deployment: model design, evaluation, and scalable inference.</p>
+      </article>
+      <article class="feature" data-reveal>
+        <svg class="feature-ic"><use href="assets/icons.svg#ux"/></svg>
+        <h3>Interactive UX</h3>
+        <p>Design systems, motion, and data visualizations that communicate model behavior.</p>
+      </article>
+      <article class="feature" data-reveal>
+        <svg class="feature-ic"><use href="assets/icons.svg#code"/></svg>
+        <h3>Engineering</h3>
+        <p>Robust APIs, observability, and MLOps pipelines for reliable production delivery.</p>
+      </article>
+    </section>
+
+
+
+    <section class="showcase container" aria-label="Featured project">
+      <div class="showcase-left" data-reveal>
+        <h2>Featured Project </h2>
+        <p class="muted">A composable platform for rapid model iteration, with live visual debugging and explainability overlays.</p>
+        <ul class="showcase-list">
+          <li>Interactive model playground</li>
+          <li>Explainability visualizations</li>
+          <li>Auto-scaling inference</li>
+        </ul>
+
+        <div class="showcase-actions">
+          <a class="btn btn-gold" href="projects.html">Case study</a>
+          <a class="btn btn-outline" href="contact.html">Discuss similar work</a>
+        </div>
+      </div>
+      <div class="showcase-right" data-parallax>
+        <div class="device-mockup glass" id="deviceMockup">
+          <div class="device-screen" id="mockupScreen" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume preview card (inserted after showcase) -->
+    <section class="resume-preview container" aria-label="Resume preview">
+      <div class="resume-preview-card glass">
+        <div class="rp-left">
+          <h3>GOWRISHANKAR S</h3>
+          <p class="muted">AI Developer • BTech AI & Data Science</p>
+          <p class="small muted">gowrishankars27@outlook.com • +91 9677320354</p>
+          <ul class="rp-highlights">
+            <li><strong>Work:</strong> Forge Innovation and Ventures </li>
+            <li><strong>Focus:</strong> Real-time AI, Edge inference, Production ML</li>
+            <li><strong>Top projects:</strong> Object Navigation System, AI Assistant,Indoor Navigation Using AR </li>
+          </ul>
+          <div class="rp-actions">
+            <button id="openResumeBtn" class="btn btn-gold">View Full Resume</button>
+            <a class="btn btn-outline" href="resume.html">Open resume page</a>
+          </div>
+        </div>
+
+        <div class="rp-right" aria-hidden="true">
+          <div class="rp-stats">
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end resume preview -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>© <strong>Gowrishankar</strong> • AI Developer</p>
+        <p class="muted">Coimbatore </p>
+      </div>
+      <div class="footer-right">
+        <a class="link" href="mailto:gowrishankars27@outlook.com">gowrishankars27@outlook.com</a>
+        <a class="nav-link" href="projects.html"> <b>Projects</b></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Resume modal (near end of body) -->
+  <div id="resumeModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Close resume">✕</button>
+      <div id="resumeModalContent" class="modal-body" style="max-height:70vh;overflow:auto;padding:18px;">
+        <p class="muted">Loading resume…</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/main.js" defer></script>
+
+  <script>
+    // Small inline helpers for immediate interactions (keeps main.js modular)
+    (function(){
+      // Ensure nav active underline aligns with current page
+      function updateNavUnderline() {
+        const nav = document.querySelector('.nav');
+        const underline = nav.querySelector('.nav-underline');
+        const links = Array.from(nav.querySelectorAll('.nav-link'));
+        const current = links.find(a => {
+          const href = a.getAttribute('href');
+          return href && (location.pathname.endsWith(href) || location.pathname === '/' && href === 'index.html');
+        }) || links[0];
+        if (!current) return;
+        const rect = current.getBoundingClientRect();
+        const navRect = nav.getBoundingClientRect();
+        underline.style.width = rect.width + 'px';
+        underline.style.transform = `translateX(${rect.left - navRect.left}px)`;
+      }
+      window.addEventListener('resize', updateNavUnderline);
+      window.addEventListener('load', updateNavUnderline);
+      document.addEventListener('DOMContentLoaded', () => {
+        // click nav links to animate underline
+        document.querySelectorAll('.nav-link').forEach(a=>{
+          a.addEventListener('mouseenter', (e)=>{
+            const nav = a.closest('.nav');
+            const underline = nav.querySelector('.nav-underline');
+            const rect = a.getBoundingClientRect();
+            const navRect = nav.getBoundingClientRect();
+            underline.style.transition = 'transform .18s cubic-bezier(.2,.9,.3,1), width .18s';
+            underline.style.width = rect.width + 'px';
+            underline.style.transform = `translateX(${rect.left - navRect.left}px)`;
+          });
+          a.addEventListener('mouseleave', updateNavUnderline);
+        });
+      });
+
+      // Resume modal loader (same logic as before)
+      const openBtn = document.getElementById('openResumeBtn');
+      const modal = document.getElementById('resumeModal');
+      const modalContent = document.getElementById('resumeModalContent');
+      const closeBtn = modal?.querySelector('.modal-close');
+      if (openBtn && modal && modalContent) {
+        openBtn.addEventListener('click', async ()=>{
+          if (modalContent.dataset.loaded === 'true') { modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; return; }
+          openBtn.disabled = true; openBtn.textContent = 'Loading…';
+          try {
+            const res = await fetch('resume.html', {cache:'no-store'});
+            const html = await res.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const resumeMain = doc.getElementById('resume-main') || doc.querySelector('main');
+            modalContent.innerHTML = resumeMain ? resumeMain.innerHTML : html;
+            modalContent.dataset.loaded = 'true';
+            modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+          } catch {
+            modalContent.innerHTML = '<p class="muted">Unable to load resume. Open the resume page instead.</p>';
+            modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+          } finally {
+            openBtn.disabled = false; openBtn.textContent = 'View Full Resume';
+          }
+        });
+        closeBtn?.addEventListener('click', ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; });
+        modal.addEventListener('click', (e)=> { if (e.target === modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }});
+        window.addEventListener('keydown', (e)=> { if (e.key === 'Escape' && modal.classList.contains('open')) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }});
+      }
+    })();
+  </script>
+
+  <section class="social-links container" aria-label="Social Profiles">
+  <h2 class="section-title">Connect with me</h2>
+  <p class="muted">You can find my work and updates on these platforms:</p>
+  <div class="social-grid">
+    <a href="https://github.com/gowrishankar2705" target="_blank" rel="noopener" class="social-card">
+  <img src="D:\Websites\gowrishankar's personal\port\assets\icons8-github-48.apng.png" alt="GitHub Logo" class="social-ic"/>
+  <span>GitHub</span>
+</a>
+
+<a href="https://www.linkedin.com/in/gowrishankar-s-59a782253/" target="_blank" rel="noopener" class="social-card">
+  <img src="D:\Websites\gowrishankar's personal\port\assets\icons8-linkedin-64.apng.png" alt="LinkedIn Logo" class="social-ic"/>
+  <span>LinkedIn</span>
+</a>
+
+<a href="https://www.instagram.com/gowrishankar__s" target="_blank" rel="noopener" class="social-card">
+  <img src="D:\Websites\gowrishankar's personal\port\assets\icons8-instagram-logo-94.png" alt="Instagram Logo" class="social-ic"/>
+  <span>Instagram</span>
+</a>
+  </div>
+</section>
+</body>
+</html>

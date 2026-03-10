@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Gowrishankar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <meta name="color-scheme" content="dark light">
+  <style>
+    /* Page-specific styles and small layout tweaks */
+    .about-page .intro{padding-top:6px;padding-bottom:6px}
+    .timeline{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+    .timeline-item{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03);align-items:start;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+    .timeline-item:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+    .timeline-item time{font-weight:700;color:var(--gold);display:block}
+    .timeline-item .role{font-weight:700;margin:0 0 6px}
+    .timeline-item .meta{color:var(--muted);font-size:0.95rem;margin-bottom:8px}
+    .timeline-item .bullets{margin:0;padding-left:18px;color:var(--muted)}
+    .timeline-item .toggle-more{margin-top:8px;background:transparent;border:0;color:var(--gold);cursor:pointer;font-weight:600}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+    .skill-card{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03)}
+    .skill-name{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:700}
+    .skill-bar{height:10px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden}
+    .skill-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));border-radius:999px;transition:width .9s cubic-bezier(.2,.9,.3,1)}
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .edu-card{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03)}
+    .counter-row{display:flex;gap:18px;margin-top:14px}
+    .counter{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px;text-align:center;min-width:120px}
+    .counter .num{font-size:1.4rem;font-weight:800;color:var(--gold)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:980px){
+      .skills-grid{grid-template-columns:1fr}
+      .edu-grid{grid-template-columns:1fr}
+      .timeline-item{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <canvas id="cursorTrail" class="cursor-canvas" aria-hidden="true"></canvas>
+  <canvas id="globalParticles" class="global-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Gowrishankar home">
+        <svg class="logo" width="36" height="36" aria-hidden="true"><use href="assets/icons.svg#logo"/></svg>
+        <span class="brand-name">Gowrishankar</span>
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="contact.html" class="nav-link cta">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggleAbout" class="icon-btn" aria-label="Toggle theme"><svg width="18" height="18"><use href="assets/icons.svg#sun"/></svg></button>
+        <button id="menuBtnAbout" class="icon-btn mobile-only" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><svg width="18" height="18"><use href="assets/icons.svg#menu"/></svg></button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main id="about-main" class="container page about-page" role="main">
+    <section class="intro">
+      <h1>About Me</h1>
+      <p class="lead">I combine research rigor with production engineering to ship AI features and interactive systems. I focus on real-time products, edge inference, and human-centered design.</p>
+
+      <div class="counter-row" aria-hidden="true">
+        <div class="counter">
+          <div class="num" data-target="01">0</div>
+          <div class="label muted">Years Experience</div>
+        </div>
+        <div class="counter">
+          <div class="num" data-target="08">0</div>
+          <div class="label muted">ML Model Devloped</div>
+        </div>
+        <div class="counter">
+          <div class="num" data-target="10">0</div>
+          <div class="label muted">Open Source Contributions</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" aria-labelledby="work-heading">
+      <h2 id="work-heading" class="section-title">Work Experience</h2>
+
+      <div class="timeline" id="workTimeline">
+        <article class="timeline-item" data-open="false">
+          <div>
+            <time>Jan 2024 — Jun 2024</time>
+            <div class="meta">Coimbatore, Tamil Nadu</div>
+          </div>
+          <div>
+            <div class="role">Graduate Innovation Engineer Trainee — Forge Innovation and Ventures</div>
+            <ul class="bullets">
+              <li>Gained hands-on experience in problem-solving, prototyping, and integrating emerging technologies into practical applications.</li>
+              <li>Enhanced technical and analytical skills through active participation in innovation workshops and cross-functional team collaborations.</li>
+            </ul>
+            <button class="toggle-more" aria-expanded="false">Show less</button>
+          </div>
+        </article>
+
+        <article class="timeline-item" data-open="false">
+          <div>
+            <time>July 2025 — Present</time>
+            <div class="meta">Coimbatore, Tamil Nadu</div>
+          </div>
+          <div>
+            <div class="role">Forge Fellowship — Forge Innovation and Ventures</div>
+            <ul class="bullets">
+              <li>Contributed to innovative solutions by collaborating on technology-driven products, focusing on product development.</li>
+              <li>Worked on real-time AI and machine learning products, focusing on building and deploying production-ready models for live data environments.</li>
+            </ul>
+            <button class="toggle-more" aria-expanded="false">Show less</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="resume-section" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="section-title">Skills</h2>
+
+      <div class="skills-grid" id="skillsGrid" aria-live="polite">
+        <div class="skill-card">
+          <div class="skill-name"><span>Artificial Intelligence</span><span>Expert</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-value="95"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name"><span>Machine Learning</span><span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-value="90"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name"><span>Data Analytics / Power BI</span><span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-value="86"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name"><span>Web & App Development</span><span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-value="82"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name"><span>UI/UX</span><span>Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-value="78"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name"><span>SQL & Programming</span><span>Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-value="80"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" aria-labelledby="edu-heading">
+      <h2 id="edu-heading" class="section-title">Education</h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3>Kumaraguru College of Technology</h3>
+          <p class="job-meta">BTech — Artificial Intelligence and Data Science • Graduation: May 2025 • Coimbatore, Tamil Nadu</p>
+        </div>
+
+        <div class="edu-card">
+          <h3>Sri Ramakrishna Polytechnic College</h3>
+          <p class="job-meta">Diploma — Computer Science Engineering • Graduation: Apr 2022 • Coimbatore, Tamil Nadu</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" aria-labelledby="projects-heading">
+    
+    </section>
+
+    <section class="resume-section">
+      <div class="cta-strip">
+        <p>Interested in collaborating? <a class="btn btn-gold" href="contact.html">Get in touch</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>© <strong>Gowrishankar</strong> • AI Developer</p>
+      </div>
+      <div class="footer-right">
+        <a class="link" href="mailto:gowrishankars27@outlook.com">gowrishankars27@outlook.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+  <script>
+    // Interactive behaviors for about.html
+    (function(){
+      // Counter animation
+      function animateCounters() {
+        const counters = document.querySelectorAll('.counter .num');
+        counters.forEach(el => {
+          const target = +el.dataset.target || 0;
+          let current = 0;
+          const step = Math.max(1, Math.floor(target / 60));
+          const id = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              el.textContent = target + (target >= 10 ? '+' : '');
+              clearInterval(id);
+            } else {
+              el.textContent = current;
+            }
+          }, 14);
+        });
+      }
+
+      // Skill bar animation on intersection
+      function animateSkillBars() {
+        const fills = document.querySelectorAll('.skill-fill');
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const fill = entry.target;
+              const value = fill.dataset.value || 0;
+              fill.style.width = value + '%';
+              obs.unobserve(fill);
+            }
+          });
+        }, {threshold: 0.28});
+        fills.forEach(f => io.observe(f));
+      }
+
+      // Timeline expand/collapse toggles
+      function initTimelineToggles() {
+        const items = document.querySelectorAll('.timeline-item');
+        items.forEach(item => {
+          const btn = item.querySelector('.toggle-more');
+          const bullets = item.querySelector('.bullets');
+          if (!btn) return;
+          // start collapsed on small screens
+          const collapsed = window.innerWidth < 720;
+          if (collapsed) {
+            bullets.style.display = 'none';
+            btn.textContent = 'Show more';
+            btn.setAttribute('aria-expanded','false');
+          } else {
+            bullets.style.display = '';
+            btn.textContent = 'Show less';
+            btn.setAttribute('aria-expanded','true');
+          }
+          btn.addEventListener('click', () => {
+            const open = btn.getAttribute('aria-expanded') === 'true';
+            if (open) {
+              bullets.style.display = 'none';
+              btn.textContent = 'Show more';
+              btn.setAttribute('aria-expanded','false');
+            } else {
+              bullets.style.display = '';
+              btn.textContent = 'Show less';
+              btn.setAttribute('aria-expanded','true');
+            }
+          });
+        });
+      }
+
+      // Small accessibility: keyboard focus styles for timeline items
+      function initKeyboardFocus() {
+        document.querySelectorAll('.timeline-item').forEach(item => {
+          item.tabIndex = 0;
+          item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              const btn = item.querySelector('.toggle-more');
+              if (btn) btn.click();
+            }
+          });
+        });
+      }
+
+      // Initialize when DOM is ready
+      function init() {
+        animateCounters();
+        animateSkillBars();
+        initTimelineToggles();
+        initKeyboardFocus();
+      }
+
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+      else init();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Gowrishankar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="theme-dark">
+  <canvas id="cursorTrail" class="cursor-canvas" aria-hidden="true"></canvas>
+  <canvas id="globalParticles" class="global-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" width="36" height="36"><use href="assets/icons.svg#logo"/></svg>
+        <span class="brand-name">Gowrishankar</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="projects.html" class="nav-link cta">Projects</a>
+        <a href="contact.html" class="nav-link cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page contact-page">
+    <section class="intro">
+      <h1>Contact</h1>
+      <p class="lead">Tell me about your project, timeline, and goals. I respond to serious inquiries within 48 hours.</p>
+    </section>
+
+    <section class="contact-grid">
+      <!-- Contact Form integrated with Formspree -->
+      <form id="contactForm" class="contact-form" action="https://formspree.io/f/mgonaajl" method="POST">
+        <label for="name">Name</label>
+        <input id="name" name="name" required placeholder="Your name">
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@company.com">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required placeholder="Project summary, timeline, budget"></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-gold">Send message</button>
+          <button type="reset" class="btn btn-outline">Reset</button>
+        </div>
+
+        <p class="muted small">Powered by Formspree — messages go directly to gowrishankars27@outlook.com</p>
+      </form>
+
+      <aside class="contact-card glass" aria-label="Contact card">
+        <h3>Get in touch</h3>
+        <p class="muted">Prefer email or calendar? Copy contact details below.</p>
+        <div class="contact-info">
+          <div><strong>Email</strong><br><a href="mailto:gowrishankars27@outlook.com">gowrishankars27@outlook.com</a></div>
+          <p></p>
+          <div><strong>Location</strong><br>Coimbatore, India</div>
+          <p></p>
+          <div><strong>Availability</strong><br>Freelance / Contract</div>
+          <p></p>
+        </div>
+        <button id="copyContact" class="btn btn-sm ghost">Copy Contact</button>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <strong>Gowrishankar</strong></p>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
