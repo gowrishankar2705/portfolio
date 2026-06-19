@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gowrishankar S — Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+  <title>Resume — Gowrishankar S</title>
+  <meta name="description" content="Resume of Gowrishankar S — AI/ML Developer. BTech AI & Data Science, Kumaraguru College of Technology.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
-  <meta name="color-scheme" content="dark light">
 </head>
-<body class="theme-dark">
-   <canvas id="cursorTrail" class="cursor-canvas" aria-hidden="true"></canvas>
-    <canvas id="globalParticles" class="global-canvas" aria-hidden="true"></canvas>
+<body>
+  <canvas id="cursorTrail" class="cursor-canvas" aria-hidden="true"></canvas>
+  <canvas id="globalParticles" class="global-canvas" aria-hidden="true"></canvas>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Gowrishankar home">
-        <svg class="logo" width="36" height="36" aria-hidden="true"><use href="assets/icons.svg#logo"/></svg>
+        <div class="brand-logo">GS</div>
         <span class="brand-name">Gowrishankar</span>
       </a>
-
       <nav class="nav" role="navigation" aria-label="Primary">
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
@@ -26,13 +27,12 @@
         <a href="resume.html" class="nav-link active">Resume</a>
         <a href="contact.html" class="nav-link cta">Contact</a>
       </nav>
-
       <div class="header-actions">
-        <button id="themeToggleResume" class="icon-btn" aria-label="Toggle theme"><svg width="18" height="18"><use href="assets/icons.svg#sun"/></svg></button>
-        <button id="menuBtnResume" class="icon-btn mobile-only" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><svg width="18" height="18"><use href="assets/icons.svg#menu"/></svg></button>
+        <button class="icon-btn mobile-only" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
       </div>
     </div>
-
     <div id="mobileMenu" class="mobile-menu" hidden>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -43,162 +43,166 @@
   </header>
 
   <main id="resume-main" class="container page resume-page" role="main">
-    <section class="resume-header glass">
+
+    <!-- Header card -->
+    <div class="resume-header-card" data-reveal>
       <div class="resume-left">
         <h1 class="resume-name">GOWRISHANKAR S</h1>
         <p class="resume-contact">
-          <a href="mailto:gowrishankars27@outlook.com">gowrishankars27@outlook.com</a> • +91 96773 20354 • <a href="https://www.linkedin.com/in/gowrishankar-s-59a782253/" aria-label="LinkedIn">LinkedIn</a> • <a href="index.html">Portfolio</a>
+          <a href="mailto:gowrishankars27@outlook.com">gowrishankars27@outlook.com</a> ·
+          +91 96773 20354 ·
+          <a href="https://www.linkedin.com/in/gowrishankar-s-59a782253/" target="_blank" rel="noopener">LinkedIn</a> ·
+          <a href="index.html">Portfolio</a>
         </p>
       </div>
       <div class="resume-actions">
-        <a class="btn btn-outline" href="assets/Gowrishankar.pdf" target="_blank" rel="noopener">Download PDF</a>
-        <a class="btn btn-gold" href="contact.html">Hire / Contact</a>
+        <a class="btn btn-outline" href="assets/Gowrishankar.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+        <a class="btn btn-primary" href="contact.html">Hire Me</a>
       </div>
-    </section>
+    </div>
 
-    <section class="resume-section">
+    <!-- Work Experience -->
+    <section class="resume-section" data-reveal>
       <h2 class="section-title">Work Experience</h2>
 
       <article class="job">
-        <header>
-          <h3>Forge Innovation and Ventures — Graduate Innovation Engineer Trainee</h3>
-          <p class="job-meta">Coimbatore, Tamil Nadu • Jan 2024 — Jun 2024</p>
-        </header>
+        <h3>Forge Innovation and Ventures — <span style="color:var(--accent)">Forge Fellowship</span></h3>
+        <p class="job-meta">Coimbatore, Tamil Nadu · July 2025 — Present</p>
         <ul>
-          <li>Gained hands-on experience in problem-solving, prototyping, and integrating emerging technologies into practical applications.</li>
-          <li>Enhanced technical and analytical skills through active participation in innovation workshops and cross-functional team collaborations.</li>
+          <li>Working on real-time AI and machine learning products, building and deploying production-ready models for live data environments.</li>
+          <li>Collaborating on technology-driven products with a focus on scalable product development and AI integration.</li>
         </ul>
       </article>
 
       <article class="job">
-        <header>
-          <h3>Forge Innovation and Ventures — Forge Fellowship</h3>
-          <p class="job-meta">Coimbatore, Tamil Nadu • July 2025 — Present</p>
-        </header>
+        <h3>Forge Innovation and Ventures — <span style="color:var(--accent)">Graduate Innovation Engineer Trainee</span></h3>
+        <p class="job-meta">Coimbatore, Tamil Nadu · Jan 2024 — Jun 2024</p>
         <ul>
-          <li>Contributed to innovative solutions by collaborating on technology-driven products, focusing on product development.</li>
-          <li>Worked on real-time AI and machine learning products, building and deploying production-ready models for live data environments.</li>
+          <li>Gained hands-on experience in problem-solving, prototyping, and integrating emerging technologies into practical applications.</li>
+          <li>Enhanced technical and analytical skills through innovation workshops and cross-functional team collaborations.</li>
         </ul>
       </article>
     </section>
 
-    <section class="resume-section">
+    <!-- Skills -->
+    <section class="resume-section" data-reveal>
       <h2 class="section-title">Skills</h2>
       <p class="skills-list">
-        <strong>Core:</strong> Artificial Intelligence; Machine Learning; Data Analytics; Data Science; SQL; Power BI<br>
-        <strong>Engineering:</strong> Web Development; App Development; UI/UX; Product Development; Backend (Node.js, Flask)<br>
-        <strong>Tools & Libraries:</strong> PyTorch; TensorFlow; OpenCV; YOLO; Streamlit; FastAPI; Docker; Git; GitHub
+        <strong>Core AI/ML:</strong> Artificial Intelligence · Machine Learning · Deep Learning · Computer Vision · NLP · Data Science · Data Analytics<br>
+        <strong>Engineering:</strong> Web Development · App Development · UI/UX · Product Development · Node.js · Flask · FastAPI<br>
+        <strong>Tools & Frameworks:</strong> PyTorch · TensorFlow · OpenCV · YOLOv8 · Streamlit · AssemblyAI · ElevenLabs · Docker · Git · GitHub · Power BI · Google Sheets API · ARCore
       </p>
     </section>
 
-    <section class="resume-section">
+    <!-- Education -->
+    <section class="resume-section" data-reveal>
       <h2 class="section-title">Education</h2>
 
       <div class="edu">
         <h3>Kumaraguru College of Technology</h3>
-        <p class="job-meta">BTech — Artificial Intelligence and Data Science • Graduation: May 2025 • Coimbatore, Tamil Nadu</p>
+        <p class="job-meta">BTech — Artificial Intelligence and Data Science · Graduation: May 2025 · Coimbatore, Tamil Nadu</p>
       </div>
 
-      <div class="edu">
+      <div class="edu" style="margin-top:12px;">
         <h3>Sri Ramakrishna Polytechnic College</h3>
-        <p class="job-meta">Diploma — Computer Science Engineering • Graduation: Apr 2022 • Coimbatore, Tamil Nadu</p>
+        <p class="job-meta">Diploma — Computer Science Engineering · Graduation: Apr 2022 · Coimbatore, Tamil Nadu</p>
       </div>
     </section>
 
-    <section class="resume-section">
+    <!-- Project Experience -->
+    <section class="resume-section" data-reveal>
       <h2 class="section-title">Project Experience</h2>
 
       <article class="project">
-        <h3>Real-time Energy Monitoring Dashboard</h3>
-        <p class="muted">Streamlit • Google Sheets API • Data Visualization • Python • GitHub</p>
+        <h3>AI Assistant (Multimodal)</h3>
+        <p class="muted small">NLP · AssemblyAI · ElevenLabs · Voice AI · OpenCV · PyTorch · YOLOv8</p>
         <ul>
-          <li>Built a professional-grade Streamlit dashboard connected to Google Sheets for real-time energy telemetry and visualization.</li>
-          <li>Implemented automated polling and live updates, alert thresholds, and exportable summaries for operational insights.</li>
-          <li>Optimized data ingestion and chart rendering for low-latency updates in production environments.</li>
+          <li>Built an interactive AI assistant integrating speech recognition, computer vision, and NLP.</li>
+          <li>Designed modular pipelines for transcription, NLP response generation, and real-time voice synthesis.</li>
         </ul>
       </article>
 
       <article class="project">
         <h3>Object Navigation System</h3>
-        <p class="muted">Computer Vision • YOLO • Raspberry Pi • Python • GitHub</p>
+        <p class="muted small">Computer Vision · YOLO · Raspberry Pi 4 · Python · Edge AI</p>
         <ul>
-          <li>Implemented YOLO-based real-time object detection and navigation on Raspberry Pi 4 with directional feedback for visually impaired users.</li>
-          <li>Optimized inference pipeline for edge hardware and integrated audio/haptic feedback for safe navigation.</li>
-        </ul>
-      </article>
-
-      <article class="project">
-        <h3>AI Assistant (Multimodal)</h3>
-        <p class="muted">NLP • AssemblyAI • ElevenLabs • Voice AI • OpenCV • PyTorch • YOLOv8 • GitHub</p>
-        <ul>
-          <li>Integrated speech recognition, computer vision, and NLP modules to build an interactive assistant experience.</li>
-          <li>Designed modular pipelines for transcription, response generation, and voice synthesis with real-time vision inputs.</li>
-        </ul>
-      </article>
-
-      <article class="project">
-        <h3>Component Detector for Electronics</h3>
-        <p class="muted">Deep Learning • Flask • Transformers • OpenCV • PyTorch/TensorFlow • GitHub</p>
-        <ul>
-          <li>Built an AI-powered detector to identify and classify electronic components in images and video streams with a web interface.</li>
-          <li>Supported batch uploads, live camera mode, and confidence-based filtering for assembly and repair workflows.</li>
-        </ul>
-      </article>
-
-      <article class="project">
-        <h3>SwiftSports — Ecommerce</h3>
-        <p class="muted">HTML • CSS • JavaScript • Node.js • GitHub</p>
-        <ul>
-          <li>Developed an elegant ecommerce prototype for sportswear with product flows, cart management, and checkout prototypes.</li>
-        </ul>
-      </article>
-
-      <article class="project">
-        <h3>Turf Booking Website</h3>
-        <p class="muted">HTML • CSS • JavaScript • Node.js • GitHub</p>
-        <ul>
-          <li>Built a prototype turf booking system with signup, login, and slot reservation flows for sports venues.</li>
+          <li>YOLO-based real-time object detection for visually impaired navigation on Raspberry Pi 4.</li>
+          <li>Optimized inference for edge hardware; integrated audio directional feedback.</li>
         </ul>
       </article>
 
       <article class="project">
         <h3>Indoor Navigation Using AR</h3>
-        <p class="muted">Android • AR • Mobile UX</p>
+        <p class="muted small">Android · AR · ARCore · Mobile UX</p>
         <ul>
-          <li>Developed an indoor navigation Android app using AR technology for a college campus, reducing student tardiness by 75%.</li>
+          <li>Deployed AR navigation app across college campus, reducing student tardiness by 75%.</li>
         </ul>
       </article>
 
       <article class="project">
         <h3>Automated Agriculture Drone for Disease Identification</h3>
-        <p class="muted">AI • Drone • Computer Vision • Research Collaboration</p>
+        <p class="muted small">AI · Drone · Computer Vision · Research Collaboration</p>
         <ul>
-          <li>Collaborated with agricultural researchers to fine-tune drone-based disease identification models, improving detection rates by 80% over traditional methods.</li>
+          <li>Fine-tuned disease-detection models on aerial drone imagery; improved detection rates by 80% over traditional methods.</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <h3>Real-time Energy Monitoring Dashboard</h3>
+        <p class="muted small">Python · Streamlit · Google Sheets API · Data Visualization</p>
+        <ul>
+          <li>Built live energy telemetry dashboard with automated polling, alert thresholds, and exportable summaries.</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <h3>Component Detector for Electronics</h3>
+        <p class="muted small">Deep Learning · Flask · Transformers · OpenCV · PyTorch / TensorFlow</p>
+        <ul>
+          <li>AI-powered electronic component classifier with Flask web interface, batch upload, and live camera mode.</li>
         </ul>
       </article>
 
       <article class="project">
         <h3>Smart Parking System</h3>
-        <p class="muted">IoT • Mobile App • Real-time Monitoring</p>
+        <p class="muted small">IoT · Mobile App · WebSocket · Real-time Monitoring</p>
         <ul>
-          <li>Developed a smart parking app integrated with sensors to monitor real-time parking availability and display slot status via a user-friendly interface.</li>
+          <li>Smart parking app with sensor integration; real-time slot status via WebSocket.</li>
         </ul>
+      </article>
+
+      <article class="project">
+        <h3>SwiftSports — Ecommerce</h3>
+        <p class="muted small">HTML · CSS · JavaScript · Node.js</p>
+        <ul><li>Ecommerce prototype for sportswear with product flows, cart, and checkout.</li></ul>
+      </article>
+
+      <article class="project">
+        <h3>Turf Booking Website</h3>
+        <p class="muted small">HTML · CSS · JavaScript · Node.js</p>
+        <ul><li>Sports venue slot reservation system with auth and real-time availability.</li></ul>
       </article>
     </section>
 
-    <section class="resume-section">
+    <!-- Additional -->
+    <section class="resume-section" data-reveal>
       <h2 class="section-title">Additional</h2>
       <p class="muted">Available for freelance and contract work. Open to remote opportunities. References and detailed case studies available on request.</p>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
-        <p>© <strong>Gowrishankar</strong> • AI Developer</p>
+        <p>© 2026 <strong>Gowrishankar S</strong> — AI & ML Developer</p>
       </div>
       <div class="footer-right">
-        <a class="link" href="mailto:gowrishankars27@outlook.com">gowrishankars27@outlook.com</a>
+        <a href="assets/Gowrishankar.pdf" target="_blank" rel="noopener">Download PDF</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </footer>
